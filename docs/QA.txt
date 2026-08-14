@@ -1,4 +1,4 @@
-GongKe Flow TW Smooth 1.3 QA
+ononSingle 1.3.1 QA
 
 Unicode mappings: 13918
 Glyphs including .notdef: 13919
@@ -9,6 +9,10 @@ TrueType off-curve control points: 300896
 Cmap equals LINE Seed TW Thin source: yes
 Extraction errors: 0
 FontTools save/read roundtrip: passed
+Internal family/full/PostScript names: ononSingle / ononSingle Regular / ononSingle-Regular
+Reserved Font Name absent from user-facing names: yes
+Original and modification copyright records: present
+OS/2 embedding fsType: 0 (installable embedding)
 
 R: 3 contours, 14 off-curve points
 O: 1 contour, 32 off-curve points
