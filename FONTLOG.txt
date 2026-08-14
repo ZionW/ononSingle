@@ -1,0 +1,33 @@
+FONTLOG for ononSingle
+======================
+
+This file records changes made to the Modified Version of the font software.
+
+ononSingle 1.3.1 - 2026-08-14
+--------------------------------
+- Derived from LINE Seed TW Thin 1.400 by LY Corporation.
+- Renamed the filename, font family, full font name, and PostScript name to
+  "ononSingle" so the Reserved Font Name "LINE Seed TW" is not used for the
+  Modified Version.
+- Extracted stroke centerlines for CNC, laser engraving, and single-line text
+  workflows.
+- Joined directionally continuous endpoints and simplified small decorative
+  details to reduce lifts and unnecessary path turns.
+- Added TrueType quadratic curves for rounded Latin forms and Chinese stroke
+  transitions while retaining deliberate sharp corners.
+- Repaired R, O, l, I, U+4E00 (CJK ideograph one), and similar degenerate
+  single-stroke glyphs.
+- Added explicit Modified Version copyright, license metadata, and OFL release
+  documentation.
+- Changed OS/2 fsType to 0 so the embedding setting is consistent with the OFL.
+
+Acknowledgements
+----------------
+Original Version: LINE Seed TW Thin 1.400
+Original copyright: Copyright (c) 2025, LY Corporation
+Original Reserved Font Name: "LINE Seed TW"
+Modified Version: ononSingle
+Modifications copyright: Copyright (c) 2026, ZionW
+
+ononSingle is not the Original Version, is not affiliated with LY Corporation
+or LINE, and is not endorsed by them.

@@ -25,6 +25,7 @@
 - 檔名：`ononSingle.ttf`
 - 內部家族名稱：`ononSingle`
 - 樣式：`Regular`
+- 版本：`1.3.1`
 - Unicode 映射：13,918
 - Glyph 數量：13,919（含 `.notdef`）
 - TrueType 二次曲線控制點：300,896
@@ -58,11 +59,19 @@ Rhino 只對少數內建雕刻字型提供特殊預覽；新字型在一般文�
 
 這是自動骨架與幾何最佳化產生的實驗版本，並非逐字人工修訂的商用品質字型。複雜中文字可能仍有不理想的分支、走刀順序或局部造型。大量加工前請務必轉成曲線並逐字抽查。
 
-驗證摘要請參閱 [`docs/QA.txt`](./docs/QA.txt)。
+驗證摘要請參閱 [`docs/QA.txt`](./docs/QA.txt)，各版本改動記錄請參閱 [`FONTLOG.txt`](./FONTLOG.txt)。
+
+## 修改版名稱規範
+
+本專案依照 [OFL 官方修改字型指引](https://openfontlicense.org/how-to-modify-ofl-fonts/) 發佈：
+
+- 原字型的保留名稱 `LINE Seed TW` 不用於修改版的檔名、家族名稱、完整名稱或 PostScript 名稱。
+- 修改版統一使用 `ononSingle`，並在字型 metadata、`OFL.txt` 與 `FONTLOG.txt` 保留原始著作權及加入修改者聲明。
+- `ononSingle` 是 Modified Version，與 LY Corporation 或 LINE 無關，也未獲其背書。
 
 ## 授權
 
-本專案包含的字型是 LINE Seed TW 的衍生字型，沿用 [SIL Open Font License 1.1](./LICENSE.txt)。散布、修改或再發佈時，請遵守 `LICENSE.txt` 中的全部條件，包括：
+本專案包含的字型是 LINE Seed TW 的衍生字型，沿用 [SIL Open Font License 1.1](./OFL.txt)。散布、修改或再發佈時，請遵守 `OFL.txt` 中的全部條件；另附 [OFL-FAQ.txt](./OFL-FAQ.txt) 供參考。重點包括：
 
 - 衍生字型仍須使用 OFL 1.1。
 - 必須保留原始版權及授權聲明。
