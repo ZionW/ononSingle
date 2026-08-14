@@ -9,6 +9,21 @@
 
 [下載 ononSingle.ttf](./ononSingle.ttf)
 
+[下載 ononSingleText.ttf](./ononSingleText.ttf)
+
+## 為什麼需要兩款字型？
+
+Rhino 對真正單線字型與一般可編輯文字使用不同的輪廓處理方式，因此本專案提供兩個用途不同、可以同時安裝的字型家族：
+
+| 字型 | 適用功能 | 輪廓特性 | 主要用途 |
+| --- | --- | --- | --- |
+| `ononSingle.ttf` | `TextObject（文字物件）`＋`Engraving font` | 真正單線加工路徑 | CNC、雷射雕刻及單刀路徑輸出 |
+| `ononSingleText.ttf` | 一般 `Text（文字方塊）` | 極細的合法封閉輪廓 | 需要保留可編輯文字及正常畫面顯示時使用 |
+
+`ononSingleText` 為避免一般文字填色器產生黑色方塊，必須讓筆畫具有極細寬度；因此炸開後會得到筆畫內外兩側的雙線。若加工時需要真正單線，請使用 `ononSingle` 與 `TextObject`。兩款字型無法互相取代，而是分別解決「單線加工」與「可編輯文字」兩種需求。
+
+`ononSingleText` 的技術說明與測試方式請參閱 [`experiments/ononSingleText.md`](./experiments/ononSingleText.md)。
+
 ## 改編內容
 
 - 從 LINE Seed TW Thin 提取筆畫中心骨架。

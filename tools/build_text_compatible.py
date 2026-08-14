@@ -141,17 +141,17 @@ def main():
     if args.profile == "v2":
         stroke_width = args.stroke_width or 24.0
         names = {
-            1: "ononSingle Text V2",
-            3: "ononSingleTextV2-Regular-0.2",
-            4: "ononSingle Text V2 Regular",
+            1: "ononSingleText",
+            3: "ononSingleText-Regular-0.2",
+            4: "ononSingleText Regular",
             5: "Version 0.2; Rhino Text thin-outline compatibility build",
-            6: "ononSingleTextV2-Regular",
+            6: "ononSingleText-Regular",
             10: (
-                "Second experimental thin-outline companion to ononSingle for "
-                "Rhino Text and other standard filled-text renderers. Derived "
-                "from LINE Seed TW Thin 1.400."
+                "Thin-outline companion to ononSingle for Rhino Text and other "
+                "standard filled-text renderers. Derived from LINE Seed TW "
+                "Thin 1.400."
             ),
-            16: "ononSingle Text V2",
+            16: "ononSingleText",
             17: "Regular",
         }
         revision = 0.2

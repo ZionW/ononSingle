@@ -1,11 +1,11 @@
-# ononSingle Text V2
+# ononSingleText
 
-這是針對 Rhino `Text（文字方塊）` 的第二個獨立測試版，不會取代任何既有字型。
+這是針對 Rhino `Text（文字方塊）` 的獨立細輪廓版本，不會取代單線加工版 `ononSingle`。
 
 ## 第二版調整
 
-- 使用全新家族名稱 `ononSingle Text V2`，避免 macOS 或 Rhino 沿用第一版字型快取。
-- 版本識別改為 `0.2`，PostScript 名稱改為 `ononSingleTextV2-Regular`。
+- 使用獨立家族名稱 `ononSingleText`，避免 macOS 或 Rhino 與單線加工版混淆。
+- 版本識別為 `0.2`，PostScript 名稱為 `ononSingleText-Regular`。
 - 將封閉細輪廓從 12 units 加寬為 24 units，降低小尺寸渲染時輪廓兩側重合或被捨棄的機率。
 - 每個筆畫先建立合法封閉輪廓，再合併交疊區域，外圈使用 TrueType 順時針方向、孔洞使用逆時針方向。
 - 不包含 `Engraving: Singlestroke` 標記，避免 Rhino 以未被白名單接受的單線方式處理。
@@ -18,12 +18,12 @@
 
 ## 標準填色渲染預覽
 
-![ononSingle Text V2 標準填色渲染預覽](./ononSingleTextV2-preview.png)
+![ononSingleText 標準填色渲染預覽](./ononSingleText-preview-final.png)
 
 ## 測試方式
 
-1. 安裝 `ononSingleTextV2.ttf` 並完全重新啟動 Rhino。
-2. 在字型欄確認選到完整名稱 `ononSingle Text V2`。
+1. 安裝 `ononSingleText.ttf` 並完全重新啟動 Rhino。
+2. 在字型欄確認選到完整名稱 `ononSingleText`。
 3. 使用一般 `Text` 建立 `ABCDEFGHIJKLMNOPQRSTUVWXYZ` 與 `test測試`。
 4. 檢查畫面及炸開輪廓。
 
@@ -31,5 +31,5 @@
 
 ```sh
 python3 tools/build_text_compatible.py --profile v2 \
-  ononSingle.ttf ononSingleTextV2.ttf
+  ononSingle.ttf ononSingleText.ttf
 ```
