@@ -94,6 +94,11 @@ def thin_outline_glyph(glyph_set, glyph_name: str, stroke_width: float):
     )
     pen = TTGlyphPen(None)
     for polygon in polygons(shape):
+        # Boolean unions can leave microscopic slivers or holes. They collapse
+        # to one- or two-point contours after font-unit rounding and confuse
+        # some filled-text renderers, so omit them before writing the glyph.
+        if polygon.area < 4.0:
+            continue
         # TrueType convention: outer rings clockwise, holes counter-clockwise.
         polygon = orient(polygon, sign=-1.0)
         rings = [polygon.exterior, *polygon.interiors]
@@ -104,6 +109,13 @@ def thin_outline_glyph(glyph_set, glyph_name: str, stroke_width: float):
                 if not cleaned or point != cleaned[-1]:
                     cleaned.append(point)
             if len(cleaned) < 3:
+                continue
+            area2 = sum(
+                cleaned[index][0] * cleaned[(index + 1) % len(cleaned)][1]
+                - cleaned[(index + 1) % len(cleaned)][0] * cleaned[index][1]
+                for index in range(len(cleaned))
+            )
+            if area2 == 0:
                 continue
             pen.moveTo(cleaned[0])
             for point in cleaned[1:]:
@@ -122,8 +134,43 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
-    parser.add_argument("--stroke-width", type=float, default=12.0)
+    parser.add_argument("--profile", choices=("v1", "v2"), default="v1")
+    parser.add_argument("--stroke-width", type=float)
     args = parser.parse_args()
+
+    if args.profile == "v2":
+        stroke_width = args.stroke_width or 24.0
+        names = {
+            1: "ononSingle Text V2",
+            3: "ononSingleTextV2-Regular-0.2",
+            4: "ononSingle Text V2 Regular",
+            5: "Version 0.2; Rhino Text thin-outline compatibility build",
+            6: "ononSingleTextV2-Regular",
+            10: (
+                "Second experimental thin-outline companion to ononSingle for "
+                "Rhino Text and other standard filled-text renderers. Derived "
+                "from LINE Seed TW Thin 1.400."
+            ),
+            16: "ononSingle Text V2",
+            17: "Regular",
+        }
+        revision = 0.2
+    else:
+        stroke_width = args.stroke_width or 12.0
+        names = {
+            1: "ononSingle Text Experimental",
+            3: "ononSingleTextExperimental-Regular-0.1",
+            4: "ononSingle Text Experimental Regular",
+            5: "Version 0.1; experimental thin-outline text-compatible build",
+            6: "ononSingleTextExperimental-Regular",
+            10: (
+                "Experimental thin-outline companion to ononSingle for standard "
+                "filled-text renderers. Derived from LINE Seed TW Thin 1.400."
+            ),
+            16: "ononSingle Text Experimental",
+            17: "Regular",
+        }
+        revision = 0.1
 
     font = TTFont(args.input)
     glyph_set = font.getGlyphSet()
@@ -131,7 +178,7 @@ def main():
     replacements = {}
     for index, glyph_name in enumerate(glyph_order, 1):
         replacements[glyph_name] = thin_outline_glyph(
-            glyph_set, glyph_name, args.stroke_width
+            glyph_set, glyph_name, stroke_width
         )
         if index % 1000 == 0:
             print(f"processed {index}/{len(glyph_order)}", flush=True)
@@ -139,23 +186,11 @@ def main():
     for glyph_name, glyph in replacements.items():
         font["glyf"][glyph_name] = glyph
 
-    names = {
-        1: "ononSingle Text Experimental",
-        3: "ononSingleTextExperimental-Regular-0.1",
-        4: "ononSingle Text Experimental Regular",
-        5: "Version 0.1; experimental thin-outline text-compatible build",
-        6: "ononSingleTextExperimental-Regular",
-        10: (
-            "Experimental thin-outline companion to ononSingle for standard "
-            "filled-text renderers. Derived from LINE Seed TW Thin 1.400."
-        ),
-        16: "ononSingle Text Experimental",
-        17: "Regular",
-    }
     for name_id, value in names.items():
         set_name(font, name_id, value)
-    font["head"].fontRevision = 0.1
+    font["head"].fontRevision = revision
     font["OS/2"].fsType = 0
+    font["OS/2"].achVendID = "ZION"
     args.output.parent.mkdir(parents=True, exist_ok=True)
     font.save(args.output)
     print(f"saved {args.output}")
