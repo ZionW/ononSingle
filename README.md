@@ -3,11 +3,26 @@
 `ononSingle` 是一套供 CNC、雷射雕刻與單線文字工作流程使用的繁體中文實驗字型。
 
 > **來源說明：本字型改編自 LINE Seed TW Thin 1.400。**  
-> 原字型 Copyright © 2025 LY Corporation，依 SIL Open Font License 1.1 授權。`LINE Seed TW` 是原作者保留名稱；本衍生版本使用新的字型名稱 `ononSingle`，與 LY Corporation 或 LINE 官方無關，也未獲官方背書。
+> 原字型 Copyright © 2025 LY Corporation，依 SIL Open Font License 1.1 授權。`LINE Seed TW` 是原作者保留名稱；本專案的衍生字型使用新的家族名稱 `ononSingle` 與 `ononSingleText`，與 LY Corporation 或 LINE 官方無關，也未獲官方背書。
 
 ## 下載
 
 [下載 ononSingle.ttf](./ononSingle.ttf)
+
+[下載 ononSingleText.ttf](./ononSingleText.ttf)
+
+## 為什麼需要兩款字型？
+
+Rhino 對真正單線字型與一般可編輯文字使用不同的輪廓處理方式，因此本專案提供兩個用途不同、可以同時安裝的字型家族：
+
+| 字型 | 適用功能 | 輪廓特性 | 主要用途 |
+| --- | --- | --- | --- |
+| `ononSingle.ttf` | `TextObject（文字物件）`＋`Engraving font` | 真正單線加工路徑 | CNC、雷射雕刻及單刀路徑輸出 |
+| `ononSingleText.ttf` | 一般 `Text（文字方塊）` | 極細的合法封閉輪廓 | 需要保留可編輯文字及正常畫面顯示時使用 |
+
+`ononSingleText` 為避免一般文字填色器產生黑色方塊，必須讓筆畫具有極細寬度；因此炸開後會得到筆畫內外兩側的雙線。若加工時需要真正單線，請使用 `ononSingle` 與 `TextObject`。兩款字型無法互相取代，而是分別解決「單線加工」與「可編輯文字」兩種需求。
+
+`ononSingleText` 的技術說明與測試方式請參閱 [`experiments/ononSingleText.md`](./experiments/ononSingleText.md)。
 
 ## 改編內容
 
@@ -66,8 +81,9 @@ Rhino 只對少數內建雕刻字型提供特殊預覽；新字型在一般文�
 本專案依照 [OFL 官方修改字型指引](https://openfontlicense.org/how-to-modify-ofl-fonts/) 發佈：
 
 - 原字型的保留名稱 `LINE Seed TW` 不用於修改版的檔名、家族名稱、完整名稱或 PostScript 名稱。
-- 修改版統一使用 `ononSingle`，並在字型 metadata、`OFL.txt` 與 `FONTLOG.txt` 保留原始著作權及加入修改者聲明。
-- `ononSingle` 是 Modified Version，與 LY Corporation 或 LINE 無關，也未獲其背書。
+- 修改版使用可清楚區別於原字型的家族名稱：單線加工版為 `ononSingle`，一般文字版為 `ononSingleText`；檔名、完整名稱及 PostScript 名稱亦採用相同的新名稱系統。
+- 原字型名稱只出現在來源說明、copyright、description、`OFL.txt` 與 `FONTLOG.txt`，不作為使用者可選取的字型家族名稱。
+- 兩款字型均屬 Modified Version；字型 metadata、`OFL.txt` 與 `FONTLOG.txt` 保留原始著作權並加入修改者聲明，且不暗示 LY Corporation 或 LINE 的關聯或背書。
 
 ## 授權
 

@@ -3,6 +3,18 @@ FONTLOG for ononSingle
 
 This file records changes made to the Modified Version of the font software.
 
+ononSingleText 0.2 - 2026-08-14
+--------------------------------
+- Added a separate thin closed-outline companion for Rhino Text and other
+  standard filled-text renderers.
+- Renamed the filename, font family, full font name, and PostScript name to
+  "ononSingleText" so the Reserved Font Name "LINE Seed TW" is not used to
+  identify the Modified Version to users.
+- Retained the original copyright and Reserved Font Name declaration, added
+  the modifications copyright, and kept the SIL Open Font License metadata.
+- This companion uses legal closed contours for editable filled text; it is
+  not a true single-line engraving font.
+
 ononSingle 1.3.1 - 2026-08-14
 --------------------------------
 - Derived from LINE Seed TW Thin 1.400 by LY Corporation.
@@ -26,8 +38,8 @@ Acknowledgements
 Original Version: LINE Seed TW Thin 1.400
 Original copyright: Copyright (c) 2025, LY Corporation
 Original Reserved Font Name: "LINE Seed TW"
-Modified Version: ononSingle
+Modified Versions: ononSingle and ononSingleText
 Modifications copyright: Copyright (c) 2026, ZionW
 
-ononSingle is not the Original Version, is not affiliated with LY Corporation
-or LINE, and is not endorsed by them.
+ononSingle and ononSingleText are not the Original Version, are not affiliated
+with LY Corporation or LINE, and are not endorsed by them.
