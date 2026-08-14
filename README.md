@@ -32,6 +32,14 @@
 
 ## 預覽
 
+### Rhino 8 實際使用
+
+下圖是在 Rhino 8 的 `TextObject` 中選用 **ononSingle**，並輸出成單線曲線的實際畫面。
+
+![ononSingle 在 Rhino 8 TextObject 中的實際使用畫面](./assets/rhino8-ononSingle.png)
+
+### 字形處理比較
+
 下圖每個字由上至下依序是原始骨架、筆畫連貫版，以及保留尖角的平滑曲線版。
 
 ![原始、連貫與平滑曲線比較](./assets/comparison.svg)
