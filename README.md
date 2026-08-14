@@ -2,6 +2,8 @@
 
 `ononSingle` 是一套供 CNC、雷射雕刻與單線文字工作流程使用的繁體中文實驗字型。
 
+> **目前的 Rhino 相容性限制：**本字型只能透過 `TextObject（文字物件）` 並輸出為曲線正常使用；一般 `Text（文字方塊）` 目前無法正常顯示或使用。
+
 > **來源說明：本字型改編自 LINE Seed TW Thin 1.400。**  
 > 原字型 Copyright © 2025 LY Corporation，依 SIL Open Font License 1.1 授權。`LINE Seed TW` 是原作者保留名稱；本衍生版本使用新的字型名稱 `ononSingle`，與 LY Corporation 或 LINE 官方無關，也未獲官方背書。
 
@@ -47,13 +49,15 @@
 
 ## Rhino 使用方式
 
+> 請使用 `TextObject（文字物件）`。目前不支援一般 `Text（文字方塊）`。
+
 1. 安裝 `ononSingle.ttf` 後，完全重新啟動 Rhino。
 2. 執行 `TextObject`，選擇 **ononSingle**。
 3. 選擇輸出為曲線，並手動啟用 **Engraving font／雕刻字型**。
 4. 建議先測試 `R O l I 一 線字測試 圓潤`。
 5. 正式加工前，依實際刀徑、雷射光斑、材料與字高檢查輸出曲線。
 
-Rhino 只對少數內建雕刻字型提供特殊預覽；新字型在一般文字對話框可能顯示很淡、部分線條或空白。後續 DXF／CAM 匯出也可能把二次曲線細分為短線，請依使用軟體調整曲線容差。
+Rhino 只對少數內建雕刻字型提供特殊預覽；`ononSingle` 在一般 `Text（文字方塊）` 中可能顯示很淡、部分線條、填滿黑色或完全空白，因此目前請一律使用 `TextObject（文字物件）` 輸出曲線。後續 DXF／CAM 匯出也可能把二次曲線細分為短線，請依使用軟體調整曲線容差。
 
 ## 注意事項
 
